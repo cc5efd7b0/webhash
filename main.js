@@ -1,7 +1,7 @@
 // Service Worker
 if ('serviceWorker' in navigator) {
     console.log('Found serviceWorker');
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/webhash/sw.js')
         .then((reg) => {
             console.log('Service Worker Registered', reg);
         });
