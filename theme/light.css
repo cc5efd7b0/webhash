@@ -1,0 +1,106 @@
+@font-face{
+    font-family: "Zen Maru Gothic Light";
+    src: url(../assets/ZenMaruGothic-Light.ttf);
+}
+@font-face{
+    font-family: "Zen Maru Gothic Medium";
+    src: url(../assets/ZenMaruGothic-Medium.ttf);
+}
+@font-face {
+	font-family: 'M plus 1 Code Light';
+	src: url(../assets/Mplus1Code-Light.otf);
+}
+
+body {
+    background-color: #dddddd;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column; /* 垂直方向に要素を配置 */
+}
+
+div.info{
+    font-family: "Zen Maru Gothic Medium";
+    font-size: 12px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.header {
+    font-family: "Zen Maru Gothic Light";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+.input {
+    font-family: "Zen Maru Gothic Medium";
+}
+
+input {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #eeeeee;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: "Zen Maru Gothic Medium";
+    font-size: 14px;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: #f7f7f7;
+}
+
+.console {
+    font-family: 'M plus 1 Code Light';
+    font-size: 13px;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 20px); /* 左右にそれぞれ10pxのマージンを持たせる */
+    max-width: auto;
+    height: 200px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: auto; /* 左右のマージンを自動調整 */
+    margin-right: auto;
+    text-align: left; /* コンソール内のテキストを左揃えに */
+    line-height: 1.5;
+}
+
+.message {
+    margin: 0;
+    padding: 0;
+}

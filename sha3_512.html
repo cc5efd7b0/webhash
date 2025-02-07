@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/icon.png">
+    <title>Hash Generator</title>
+    <link rel="stylesheet" href="theme/light.css" id="theme-style">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h4>Hash Generator</h4>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <img id="theme-icon" src="assets/moon.svg" alt="Theme Icon" width="32" height="32">
+            </button>
+        </div>
+        <div class="input">
+            <label for="inputText">Enter string here:</label>
+            <input type="password" id="inputText">
+        </div>
+        <div class="button">
+            <button onclick="generateAndCopyHash()">Hash generated and copied</button>
+        </div>
+        <div class="info">
+            <label>You can also generate & copy by pressing Enter.</label>
+        </div>
+        <div id="console" class="console"></div>
+    </div>
+	
+	<script src="lib/sha3.js"></script>
+    
+</body>
+</html>
