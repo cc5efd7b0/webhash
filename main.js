@@ -1,61 +1,3 @@
-// Service Worker
-if ('serviceWorker' in navigator) {
-    console.log('Found serviceWorker');
-    navigator.serviceWorker.register('/webhash/sw.js')
-        .then((reg) => {
-            console.log('Service Worker Registered', reg);
-        });
-} else {
-    console.log('Not Found serviceWorker');
-}
-
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const cacheId = 'imguma';
-module.exports = [
-   {
-       plugins: [
-            new WorkboxPlugin.GenerateSW({
-                cacheId: cacheId,
-                swDest: path.join(OUTPUT.rootStaticAbsolutePath, 'sw.js'),
-                clientsClaim: true,
-                skipWaiting: true,
-                offlineGoogleAnalytics: true,
-                directoryIndex: '/',
-                cleanupOutdatedCaches: true,
-                runtimeCaching: [
-                    {
-                        urlPattern: new RegExp('^' + escapeRegExp('https://storage.googleapis.com/xxxx.appspot.com/static/') + '.*'),
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: cacheId + '-cdn-static',
-                            expiration: {
-                                maxEntries: 255,
-                                // maxAgeSeconds: 7 * 24 * 60 * 60
-                            },
-                            cacheableResponse: { statuses: [0, 200] },
-                        }
-                    },
-                    {
-                        urlPattern: new RegExp('^(?:' + ([
-                                escapeRegExp('https://fonts.googleapis.com/') + '.*',
-                                escapeRegExp('https://fonts.gstatic.com/') + '.*',
-                            ].join('|')) + ')$'),
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: cacheId + '-google-fonts',
-                            expiration: {
-                                maxEntries: 255,
-                                // maxAgeSeconds: 7 * 24 * 60 * 60
-                            },
-                            cacheableResponse: { statuses: [0, 200] },
-                        }
-                    },
-                ]
-            }),
-        ]
-    }
-]
-
 // Theme
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -110,7 +52,7 @@ function addMessageToConsole(message, isWarning = false) {
     consoleElement.prepend(messageElement);
 }
 
-document.getElementById('inputText').addEventListener('keypress', function (event) {
+document.getElementById('inputText').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         generateAndCopyHash();
     }
