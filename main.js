@@ -1,8 +1,17 @@
-// Theme
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
+
+    const inputTextElement = document.getElementById('inputText');
+    if (inputTextElement) {
+        inputTextElement.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                generateAndCopyHash();
+            }
+        });
+    }
 });
+
 
 function applyTheme(theme) {
     const themeStyle = document.getElementById('theme-style');
@@ -20,7 +29,6 @@ function toggleTheme() {
     applyTheme(newTheme);
 }
 
-// Hash
 function generateAndCopyHash() {
     const inputText = document.getElementById('inputText').value;
     if (!inputText) {
@@ -51,9 +59,3 @@ function addMessageToConsole(message, isWarning = false) {
 
     consoleElement.prepend(messageElement);
 }
-
-document.getElementById('inputText').addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-        generateAndCopyHash();
-    }
-});
